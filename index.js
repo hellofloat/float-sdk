@@ -2,7 +2,7 @@
 
 require( 'es6-shim' );
 var Delver = require( 'delver' );
-var EventEmitter2 = require( 'eventemitter2' ).EventEmitter2;
+var EventEmitter = require('events');
 var floatObjectFactory = require( 'float-object-factory' );
 var extend = require( 'extend' );
 
@@ -16,7 +16,7 @@ var _defaults = {
     }
 };
 
-var Float = Object.assign( {}, EventEmitter2.prototype );
+var Float = Object.assign( {}, EventEmitter.prototype );
 
 Float.init = function( options ) {
     var self = this;
