@@ -2,11 +2,11 @@
 
 require( 'es6-shim' );
 var diff = require( 'deep-diff' ).diff;
-var EventEmitter2 = require( 'eventemitter2' ).EventEmitter2;
+var EventEmitter = require('events');
 var extend = require( 'extend' );
 var superagent = require( 'superagent' );
 
-var Users = module.exports = Object.assign( {}, EventEmitter2.prototype );
+var Users = module.exports = Object.assign( {}, EventEmitter.prototype );
 
 var DEFAULTS = {
     host: 'api-auth.hellofloat.com'
@@ -41,7 +41,7 @@ Users.get = function( id, callback ) {
     }
 
     superagent
-        .get( '//' + self.options.host + '/user' + ( options.id ? '/' + options.id : '' ) )
+        .get( 'https://' + self.options.host + '/user' + ( options.id ? '/' + options.id : '' ) )
         .end( function( error, response ) {
             if ( error && error.status !== 400 ) {
                 callback( response && response.body ? response.body : error );
@@ -82,7 +82,7 @@ Users.create = function( overlay, callback ) {
     var self = this;
 
     superagent
-        .post( '//' + self.options.host + '/user' )
+        .post( 'https://' + self.options.host + '/user' )
         .send( overlay )
         .end( function( error, response ) {
             if ( error ) {
@@ -111,7 +111,7 @@ Users.update = function( user, overlay, callback ) {
     var self = this;
 
     superagent
-        .put( '//' + self.options.host + '/user/' + user.id )
+        .put( 'https://' + self.options.host + '/user/' + user.id )
         .send( overlay )
         .end( function( error, response ) {
             if ( error ) {
@@ -136,7 +136,7 @@ Users.del = function( user, callback ) {
     var self = this;
 
     superagent
-        .del( '//' + self.options.host + '/user/' + user.id )
+        .del( 'https://' + self.options.host + '/user/' + user.id )
         .end( function( error, response ) {
             if ( error ) {
                 callback( response && response.body ? response.body : error );
@@ -159,7 +159,7 @@ Users.login = function( data, callback ) {
     callback = callback || function() {};
 
     superagent
-        .post( '//' + self.options.host + '/login' )
+        .post( 'https://' + self.options.host + '/login' )
         .send( data )
         .end( function( error, response ) {
             if ( error ) {
@@ -196,7 +196,7 @@ Users.logout = function( callback ) {
     }
 
     superagent
-        .post( '//' + self.options.host + '/logout' )
+        .post( 'https://' + self.options.host + '/logout' )
         .end( function( error, response ) {
             if ( error ) {
                 callback( response && response.body ? response.body : error );

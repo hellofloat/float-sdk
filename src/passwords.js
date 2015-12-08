@@ -1,11 +1,11 @@
 'use strict';
 
 require( 'es6-shim' );
-var EventEmitter2 = require( 'eventemitter2' ).EventEmitter2;
+var EventEmitter = require('events');
 var extend = require( 'extend' );
 var superagent = require( 'superagent' );
 
-var Passwords = module.exports = Object.assign( {}, EventEmitter2.prototype );
+var Passwords = module.exports = Object.assign( {}, EventEmitter.prototype );
 
 var DEFAULTS = {
     host: 'api-auth.hellofloat.com'
@@ -21,7 +21,7 @@ Passwords.requestReset = function( options, callback ) {
     var self = this;
 
     superagent
-        .post( '//' + self.options.host + '/password_reset_request' )
+        .post( 'https://' + self.options.host + '/password_reset_request' )
         .send( options )
         .end( function( error, response ) {
             if ( error ) {
@@ -41,7 +41,7 @@ Passwords.reset = function( options, callback ) {
     var self = this;
 
     superagent
-        .post( '//' + self.options.host + '/password_reset' )
+        .post( 'https://' + self.options.host + '/password_reset' )
         .send( options )
         .end( function( error, response ) {
             if ( error ) {
