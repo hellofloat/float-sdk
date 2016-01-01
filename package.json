@@ -1,6 +1,6 @@
 {
     "name": "float",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "An SDK for interacting with Float.",
     "homepage": "https://github.com/hellofloat/float-sdk",
     "repository": {
@@ -41,8 +41,8 @@
     "dependencies": {
         "antisync": "0.0.1",
         "deep-diff": "^0.3.2",
-        "delver": "0.0.10",
-        "es6-shim": "^0.32.2",
+        "delver": "0.0.12",
+        "es6-shim": "^0.34.0",
         "eventemitter2": "^0.4.14",
         "extend": "^3.0.0",
         "float-object-factory": "hellofloat/float-object-factory#0.4.2",
