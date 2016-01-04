@@ -21,8 +21,8 @@
         "float"
     ],
     "company": "Float, Inc. (https://hellofloat.com)",
-    "author": "Andy Burke <aburke@bitflood.org> (https://github.com/andyburke)",
     "contributors": [
+        "Andy Burke <aburke@bitflood.org> (https://github.com/andyburke)",
         "Bruce Lim (https://github.com/b-rucel)",
         "Greg Cardoni <greg@cardoni.net> (https://cardoni.net)"
     ],
