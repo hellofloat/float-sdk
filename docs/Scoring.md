@@ -63,6 +63,30 @@ float.scoring.addBank( {
 } );
 ```
 
+Overlay info:
+
+| option                   | description                                |
+| :----------------------- | :----------------------------------------- |
+| username                 | Username for the bank login. |
+| password                 | Password for the bank login. |
+| type                     | Name of the bank account. |
+
+available banks: 
+- amex
+- bofa
+- capone360
+- schwab
+- chase
+- citi
+- fidelity
+- nfcu
+- pnc
+- suntrust
+- td
+- us
+- usaa
+- wells
+
 
 ### <a name="methods.getBankAccount"></a> getBankAccount( callback )
 
