@@ -7,7 +7,7 @@ var superagent = require('superagent');
 var Scoring = module.exports = Object.assign( {}, EventEmitter.prototype );
 
 var DEFAULTS = {
-    host: 'api-auth.hellofloat.com'
+    host: 'api-scoring.hellofloat.com'
 };
 
 Scoring.init = function( options ) {
@@ -60,7 +60,7 @@ Scoring.getScore = function(cb) {
     var self = this;
 
     superagent
-        .get('https://' + self.options.host + '/accounts')
+        .get('https://' + self.options.host + '/score')
         .end(function(error, response) {
             if(error) {
                 cb(response && response.body ? response.body : error);
