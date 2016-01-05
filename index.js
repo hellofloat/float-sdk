@@ -14,7 +14,8 @@ var _defaults = {
     hosts: {
         users: 'api-auth.hellofloat.com',
         passwords: 'api-auth.hellofloat.com',
-        scoring: 'api-auth.hellofloat.com'
+        scoring: 'api-scoring.hellofloat.com',
+        cards: 'api-cards.hellofloat.com'
     }
 };
 
