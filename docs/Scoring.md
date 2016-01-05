@@ -40,7 +40,7 @@ Supported options:
 
 | option                   | description                                |
 | :----------------------- | :----------------------------------------- |
-| host                     | Sets the API host for the users subsystem. |
+| host                     | Sets the API host for the scoring subsystem. |
 
 
 ### <a name="methods.addBank"></a> addBank( overlay, callback )

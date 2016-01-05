@@ -10,6 +10,7 @@ var DEFAULTS = {
     host: 'api-scoring.hellofloat.com'
 };
 
+
 Scoring.init = function( options ) {
     var self = this;
     self.options = extend( true, {}, DEFAULTS, options );
@@ -30,9 +31,6 @@ Scoring.addBank = function(overlay, cb) {
             }
 
             callback(null, response);
-            console.log('\u000A');
-            console.log('---- response.body ----');
-            console.log(response.body);
         });
 
 };
@@ -53,8 +51,6 @@ Scoring.getBankAccount = function(cb) {
         });
 
 };
-
-
 
 Scoring.getScore = function(cb) {
     var self = this;
