@@ -8,11 +8,14 @@ var extend = require( 'extend' );
 
 var Users = require( './src/users.js' );
 var Passwords = require( './src/passwords.js' );
+var Scoring = require( './src/scoring.js' );
 
 var _defaults = {
     hosts: {
         users: 'api-auth.hellofloat.com',
-        passwords: 'api-auth.hellofloat.com'
+        passwords: 'api-auth.hellofloat.com',
+        scoring: 'api-scoring.hellofloat.com',
+        cards: 'api-cards.hellofloat.com'
     }
 };
 
@@ -22,13 +25,14 @@ Float.init = function( options ) {
     var self = this;
 
     self.options = extend( true, {}, _defaults, options );
-
     self.state = new Delver( {} );
+
 
     self.users = Object.create( Users );
     self.users.init( {
         host: self.options.hosts.users
     } );
+
     self._multiplexEmit( self.users, 'users' );
     self._multiplexBind( self.users, [ {
         method: 'get',
@@ -48,10 +52,12 @@ Float.init = function( options ) {
         alias: 'delUser'
     } ] );
 
+
     self.passwords = Object.create( Passwords );
     self.passwords.init( {
         host: self.options.hosts.passwords
     } );
+
     self._multiplexEmit( self.passwords, 'passwords' );
     self._multiplexBind( self.passwords, [ {
         method: 'requestReset',
@@ -60,6 +66,25 @@ Float.init = function( options ) {
         method: 'reset',
         alias: 'resetPassword'
     } ] );
+
+
+    self.scoring = Object.create(Scoring);
+    self.scoring.init({
+        host: self.options.hosts.scoring
+    });
+
+    self._multiplexEmit(self.scoring, 'scoring');
+    self._multiplexBind(self.scoring, [{
+        method: 'addBank',
+        alias: 'addBankAccount'
+    }, {
+        method: 'getBankAccount',
+        alias: 'getBankAccount'        
+    }, {
+        method: 'getScore',
+        alias: 'getScore'
+    }])
+
 
     self.objectFactory = floatObjectFactory;
 
