@@ -31,7 +31,7 @@ Cards.init = function( options ) {
  * @api {POST} float.cards.createCard() createCard
  * @apiName createCard
  * @apiGroup Cards
- * @apiDescription Create a virtual card.
+ * @apiDescription Create a credit card.
  *
  * @apiSuccess {String} token The token identifying the card.
  * @apiSuccess {String} pan Primary Account Number, credit card number.
@@ -71,8 +71,8 @@ Cards.createCard = function(cb) {
 
 
 /**
- * @api {GET} float.cards.
- * @apiName getCardByToken
+ * @api {GET} float.cards.getCard() getCard
+ * @apiName getCard
  * @apiGroup Cards
  * @apiDescription Retrieve credit card information.
  *
