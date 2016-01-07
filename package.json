@@ -1,51 +1,53 @@
 {
-    "name": "float",
-    "version": "0.3.1",
-    "description": "An SDK for interacting with Float.",
-    "homepage": "https://github.com/hellofloat/float-sdk",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/hellofloat/float-sdk.git"
-    },
-    "main": "./index.js",
-    "scripts": {
-        "test": "browserify test/* | tape-run -b firefox",
-        "build": "npm run bundle && npm run compress && npm run copysource",
-        "bundle": "mkdir -p build/$npm_package_version/ && browserify -p bundle-collapser/plugin $npm_package_main --standalone $npm_package_name --debug | exorcist build/$npm_package_version/$npm_package_name.js.map > build/$npm_package_version/$npm_package_name.js",
-        "compress": "mkdir -p build/$npm_package_version/ && uglifyjs --screw-ie8 --stats --compress --beautify ascii_only=true,beautify=false build/$npm_package_version/$npm_package_name.js --in-source-map build/$npm_package_version/$npm_package_name.js.map --source-map build/$npm_package_version/$npm_package_name.min.js.map --source-map-url $npm_package_name.min.js.map --output build/$npm_package_version/$npm_package_name.min.js",
-        "copysource": "mkdir -p build/$npm_package_version/ && cp $npm_package_main build/$npm_package_version && if [ -d 'src' ]; then cp -r src build/$npm_package_version; fi && if [ -d 'lib' ]; then cp -r lib build/$npm_package_version; fi",
-        "stats": "browserify --full-paths $npm_package_main | discify --open",
-        "deps": "browserify-graph $npm_package_main"
-    },
-    "keywords": [
-        "float"
-    ],
-    "company": "Float, Inc. (https://hellofloat.com)",
-    "contributors": [
-        "Andy Burke <aburke@bitflood.org> (https://github.com/andyburke)",
-        "Bruce Lim (https://github.com/b-rucel)",
-        "Greg Cardoni <greg@cardoni.net> (https://cardoni.net)"
-    ],
-    "license": "MIT",
-    "devDependencies": {
-        "browserify": "^11.0.0",
-        "browserify-graph": "0.0.0",
-        "bundle-collapser": "^1.2.1",
-        "derequire": "^2.0.0",
-        "disc": "^1.3.2",
-        "exorcist": "^0.4.0",
-        "tape": "^4.0.1",
-        "tape-run": "^1.0.0",
-        "uglify-js": "^2.4.24"
-    },
-    "dependencies": {
-        "antisync": "0.0.1",
-        "deep-diff": "^0.3.2",
-        "delver": "0.0.12",
-        "es6-shim": "^0.34.0",
-        "eventemitter2": "^0.4.14",
-        "extend": "^3.0.0",
-        "float-object-factory": "hellofloat/float-object-factory#0.4.2",
-        "superagent": "^1.3.0"
-    }
+  "name": "float",
+  "version": "0.3.1",
+  "description": "An SDK for interacting with Float.",
+  "homepage": "https://github.com/hellofloat/float-sdk",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hellofloat/float-sdk.git"
+  },
+  "main": "./index.js",
+  "scripts": {
+    "docs": "apidoc -i src/ -o docs/",
+    "test": "browserify test/* | tape-run -b firefox",
+    "build": "npm run bundle && npm run compress && npm run copysource",
+    "bundle": "mkdir -p build/$npm_package_version/ && browserify -p bundle-collapser/plugin $npm_package_main --standalone $npm_package_name --debug | exorcist build/$npm_package_version/$npm_package_name.js.map > build/$npm_package_version/$npm_package_name.js",
+    "compress": "mkdir -p build/$npm_package_version/ && uglifyjs --screw-ie8 --stats --compress --beautify ascii_only=true,beautify=false build/$npm_package_version/$npm_package_name.js --in-source-map build/$npm_package_version/$npm_package_name.js.map --source-map build/$npm_package_version/$npm_package_name.min.js.map --source-map-url $npm_package_name.min.js.map --output build/$npm_package_version/$npm_package_name.min.js",
+    "copysource": "mkdir -p build/$npm_package_version/ && cp $npm_package_main build/$npm_package_version && if [ -d 'src' ]; then cp -r src build/$npm_package_version; fi && if [ -d 'lib' ]; then cp -r lib build/$npm_package_version; fi",
+    "stats": "browserify --full-paths $npm_package_main | discify --open",
+    "deps": "browserify-graph $npm_package_main"
+  },
+  "keywords": [
+    "float"
+  ],
+  "company": "Float, Inc. (https://hellofloat.com)",
+  "contributors": [
+    "Andy Burke <aburke@bitflood.org> (https://github.com/andyburke)",
+    "Bruce Lim (https://github.com/b-rucel)",
+    "Greg Cardoni <greg@cardoni.net> (https://cardoni.net)"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "apidoc": "^0.14.0",
+    "browserify": "^11.0.0",
+    "browserify-graph": "0.0.0",
+    "bundle-collapser": "^1.2.1",
+    "derequire": "^2.0.0",
+    "disc": "^1.3.2",
+    "exorcist": "^0.4.0",
+    "tape": "^4.0.1",
+    "tape-run": "^1.0.0",
+    "uglify-js": "^2.4.24"
+  },
+  "dependencies": {
+    "antisync": "0.0.1",
+    "deep-diff": "^0.3.2",
+    "delver": "0.0.12",
+    "es6-shim": "^0.34.0",
+    "eventemitter2": "^0.4.14",
+    "extend": "^3.0.0",
+    "float-object-factory": "hellofloat/float-object-factory#0.4.2",
+    "superagent": "^1.3.0"
+  }
 }
