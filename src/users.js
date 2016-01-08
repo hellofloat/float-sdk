@@ -2,7 +2,7 @@
 
 require( 'es6-shim' );
 var diff = require( 'deep-diff' ).diff;
-var EventEmitter = require('events');
+var EventEmitter = require( 'events' );
 var extend = require( 'extend' );
 var superagent = require( 'superagent' );
 
