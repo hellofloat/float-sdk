@@ -1,8 +1,8 @@
 'use strict';
 
-var EventEmitter = require('events');
-var extend = require('extend');
-var superagent = require('superagent');
+var EventEmitter = require( 'events' );
+var extend = require( 'extend' );
+var superagent = require( 'superagent' );
 
 var Cards = module.exports = Object.assign( {}, EventEmitter.prototype );
 
@@ -52,20 +52,20 @@ Cards.init = function( options ) {
  *         pin_is_set: false
  *     }
  */
-Cards.createCard = function(cb) {
+Cards.createCard = function( cb ) {
     var self = this;
 
     superagent
-        .post('https://' + self.options.host + '/card')
-        .send({})
-        .end(function(error, response) {
-            if(error) {
-                cb(response && response.body ? response.body : error);
+        .post( 'https://' + self.options.host + '/card' )
+        .send( {} )
+        .end( function( error, response ) {
+            if ( error ) {
+                cb( response && response.body ? response.body : error );
                 return;
             }
 
-            callback(null, response);
-        });
+            callback( null, response );
+        } );
 
 };
 
@@ -107,18 +107,18 @@ Cards.createCard = function(cb) {
  *     }
  *
  */
-Cards.getCard = function(cb) {
+Cards.getCard = function( cb ) {
     var self = this;
 
     superagent
-        .get('https://' + self.options.host + '/card')
-        .end(function(error, response) {
-            if(error) {
-                cb(response && response.body ? response.body : error);
+        .get( 'https://' + self.options.host + '/card' )
+        .end( function( error, response ) {
+            if ( error ) {
+                cb( response && response.body ? response.body : error );
                 return;
             }
 
-            callback(null, response);
-        });
+            callback( null, response );
+        } );
 
 }

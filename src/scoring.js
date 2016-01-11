@@ -1,8 +1,8 @@
 'use strict';
 
-var EventEmitter = require('events');
-var extend = require('extend');
-var superagent = require('superagent');
+var EventEmitter = require( 'events' );
+var extend = require( 'extend' );
+var superagent = require( 'superagent' );
 
 var Scoring = module.exports = Object.assign( {}, EventEmitter.prototype );
 
@@ -55,20 +55,20 @@ Scoring.init = function( options ) {
  *         message: 'This bank account is already associated with an existing Float account.',
  *     }
  */
-Scoring.addBank = function(overlay, cb) {
+Scoring.addBank = function( overlay, cb ) {
     var self = this;
 
     superagent
-        .post('https://' + self.options.host + '/source/bankaccount')
-        .send(overlay)
-        .end(function(error, response) {
-            if(error) {
-                cb(response && response.body ? response.body : error);
+        .post( 'https://' + self.options.host + '/source/bankaccount' )
+        .send( overlay )
+        .end( function( error, response ) {
+            if ( error ) {
+                cb( response && response.body ? response.body : error );
                 return;
             }
 
-            callback(null, response);
-        });
+            callback( null, response );
+        } );
 
 };
 
@@ -112,19 +112,19 @@ Scoring.addBank = function(overlay, cb) {
  *         message: 'You do not have any bank accounts linked to your account.',
  *     }
  */
-Scoring.getBankAccount = function(cb) {
+Scoring.getBankAccount = function( cb ) {
     var self = this;
 
     superagent
-        .get('https://' + self.options.host + '/accounts')
-        .end(function(error, response) {
-            if(error) {
-                cb(response && response.body ? response.body : error);
+        .get( 'https://' + self.options.host + '/accounts' )
+        .end( function( error, response ) {
+            if ( error ) {
+                cb( response && response.body ? response.body : error );
                 return;
             }
 
-            callback(null, response);
-        });
+            callback( null, response );
+        } );
 
 };
 
@@ -185,18 +185,18 @@ Scoring.getBankAccount = function(cb) {
  *     }
  *
  */
-Scoring.getScore = function(cb) {
+Scoring.getScore = function( cb ) {
     var self = this;
 
     superagent
-        .get('https://' + self.options.host + '/score')
-        .end(function(error, response) {
-            if(error) {
-                cb(response && response.body ? response.body : error);
+        .get( 'https://' + self.options.host + '/score' )
+        .end( function( error, response ) {
+            if ( error ) {
+                cb( response && response.body ? response.body : error );
                 return;
             }
 
-            callback(null, response);
-        });
+            callback( null, response );
+        } );
 
 };

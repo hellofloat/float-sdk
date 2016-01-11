@@ -2,13 +2,14 @@
 
 require( 'es6-shim' );
 var Delver = require( 'delver' );
-var EventEmitter = require('events');
+var EventEmitter = require( 'events' );
 var floatObjectFactory = require( 'float-object-factory' );
 var extend = require( 'extend' );
 
 var Users = require( './src/users.js' );
 var Passwords = require( './src/passwords.js' );
 var Scoring = require( './src/scoring.js' );
+var Cards = require( './src/cards.js' );
 
 var _defaults = {
     hosts: {
@@ -32,7 +33,6 @@ Float.init = function( options ) {
     self.users.init( {
         host: self.options.hosts.users
     } );
-
     self._multiplexEmit( self.users, 'users' );
     self._multiplexBind( self.users, [ {
         method: 'get',
@@ -57,7 +57,6 @@ Float.init = function( options ) {
     self.passwords.init( {
         host: self.options.hosts.passwords
     } );
-
     self._multiplexEmit( self.passwords, 'passwords' );
     self._multiplexBind( self.passwords, [ {
         method: 'requestReset',
@@ -68,22 +67,35 @@ Float.init = function( options ) {
     } ] );
 
 
-    self.scoring = Object.create(Scoring);
-    self.scoring.init({
+    self.scoring = Object.create( Scoring );
+    self.scoring.init( {
         host: self.options.hosts.scoring
-    });
-
-    self._multiplexEmit(self.scoring, 'scoring');
-    self._multiplexBind(self.scoring, [{
+    } );
+    self._multiplexEmit( self.scoring, 'scoring' );
+    self._multiplexBind( self.scoring, [ {
         method: 'addBank',
         alias: 'addBankAccount'
     }, {
         method: 'getBankAccount',
-        alias: 'getBankAccount'        
+        alias: 'getBankAccount'
     }, {
         method: 'getScore',
         alias: 'getScore'
-    }])
+    } ] );
+
+
+    self.cards = Object.create( Cards );
+    self.cards.init( {
+        host: self.options.hosts.cards
+    } );
+    self._multiplexEmit( self.cards, 'cards' );
+    self._multiplexBind( self.cards, [ {
+        method: "createCard",
+        alias: "createCard"
+    }, {
+        method: "getCard",
+        alias: "getCard"
+    } ] );
 
 
     self.objectFactory = floatObjectFactory;

@@ -10,6 +10,7 @@
   "main": "./index.js",
   "scripts": {
     "docs": "apidoc -i src/ -o docs/",
+    "js-beautify": "find . -name '*.js' -not -path './node_modules/*' | xargs js-beautify -r",
     "test": "browserify test/* | tape-run -b firefox",
     "build": "npm run bundle && npm run compress && npm run copysource",
     "bundle": "mkdir -p build/$npm_package_version/ && browserify -p bundle-collapser/plugin $npm_package_main --standalone $npm_package_name --debug | exorcist build/$npm_package_version/$npm_package_name.js.map > build/$npm_package_version/$npm_package_name.js",
