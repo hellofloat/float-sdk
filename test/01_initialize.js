@@ -1,8 +1,12 @@
 'use strict';
 
+// tape is running correctly
+// float sdk was loaded correctly
+// api objects are not loaded pre init
+// api object are set on float after init
+
 var test = require('tape');
 var float = require('../index');
-
 
 test('default passing test', (t) => {
     t.plan(1);
