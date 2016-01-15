@@ -52,7 +52,7 @@ test('users api is running', (t) => {
 test('init Float', (t) => {
     float.Float.init();
 
-// console.log(float.users)
+    // console.log(float.users)
     t.equal(typeof float.users.constructor, 'function', 'float.user object was initialized.');
     t.end();
 });
