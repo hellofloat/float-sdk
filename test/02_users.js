@@ -75,7 +75,7 @@ test('user - permissions error', (t) => {
         t.ok(error, 'Error object is returned.');
         t.equal(error.error, 'permission denied', 'Permission denied');
         t.end();
-    });   
+    });
 });
 
 
@@ -118,25 +118,16 @@ test('user - get without id function', (t) => {
 
 
 
+// getting a permission denied - weird
+test('user - logout', (t) => {
+    var logoutResponse = {
+        "logged_out": true
+    };
 
-// test('user - logout', (t) => {
-//     var logoutResponse = {
-//         "logged_out": true
-//     };
-
-//     float.users.logout(function(error, res) {
-//         t.error(error, 'No error');
-//         console.log(res)
-//         t.same(res, logoutResponse, 'expected logout response');
-//         t.end();
-//     });
-// });
-
-
-// test('user - permissions error', (t) => {
-//     float.users.get(function(error, user) {
-//         t.ok(error, 'Error object is returned.');
-//         t.equal(error.error, 'permission denied', 'Permission denied');
-//         t.end();
-//     });   
-// });
+    float.users.logout(function(error, res) {
+// console.log(res);
+        t.error(error, 'No error');
+        t.same(res, logoutResponse, 'expected logout response');
+        t.end();
+    });
+});
