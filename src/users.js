@@ -113,6 +113,7 @@ Users.get = function( id, callback ) {
 
     superagent
         .get( 'https://' + self.options.host + '/user' + ( options.id ? '/' + options.id : '' ) )
+        .withCredentials()
         .end( function( error, response ) {
             if ( error && error.status !== 400 ) {
                 callback( response && response.body ? response.body : error );
@@ -227,6 +228,7 @@ Users.create = function( overlay, callback ) {
 
     superagent
         .post( 'https://' + self.options.host + '/user' )
+        .withCredentials()
         .send( overlay )
         .end( function( error, response ) {
             if ( error ) {
@@ -328,6 +330,7 @@ Users.update = function( user, overlay, callback ) {
 
     superagent
         .put( 'https://' + self.options.host + '/user/' + user.id )
+        .withCredentials()
         .send( overlay )
         .end( function( error, response ) {
             if ( error ) {
@@ -382,6 +385,7 @@ Users.del = function( user, callback ) {
 
     superagent
         .del( 'https://' + self.options.host + '/user/' + user.id )
+        .withCredentials()
         .end( function( error, response ) {
             if ( error ) {
                 callback( response && response.body ? response.body : error );
@@ -467,6 +471,7 @@ Users.login = function( data, callback ) {
 
     superagent
         .post( 'https://' + self.options.host + '/login' )
+        .withCredentials()
         .send( data )
         .end( function( error, response ) {
             if ( error ) {
@@ -526,6 +531,7 @@ Users.logout = function( callback ) {
 
     superagent
         .post( 'https://' + self.options.host + '/logout' )
+        .withCredentials()
         .end( function( error, response ) {
             if ( error ) {
                 callback( response && response.body ? response.body : error );

@@ -60,6 +60,7 @@ Scoring.addBank = function( overlay, cb ) {
 
     superagent
         .post( 'https://' + self.options.host + '/source/bankaccount' )
+        .withCredentials()
         .send( overlay )
         .end( function( error, response ) {
             if ( error ) {
@@ -117,6 +118,7 @@ Scoring.getBankAccount = function( cb ) {
 
     superagent
         .get( 'https://' + self.options.host + '/accounts' )
+        .withCredentials()
         .end( function( error, response ) {
             if ( error ) {
                 cb( response && response.body ? response.body : error );
@@ -190,6 +192,7 @@ Scoring.getScore = function( cb ) {
 
     superagent
         .get( 'https://' + self.options.host + '/score' )
+        .withCredentials()
         .end( function( error, response ) {
             if ( error ) {
                 cb( response && response.body ? response.body : error );
