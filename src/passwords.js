@@ -57,6 +57,7 @@ Passwords.requestReset = function( options, callback ) {
 
     superagent
         .post( 'https://' + self.options.host + '/password_reset_request' )
+        .withCredentials()
         .send( options )
         .end( function( error, response ) {
             if ( error ) {
@@ -146,6 +147,7 @@ Passwords.reset = function( options, callback ) {
 
     superagent
         .post( 'https://' + self.options.host + '/password_reset' )
+        .withCredentials()
         .send( options )
         .end( function( error, response ) {
             if ( error ) {
