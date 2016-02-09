@@ -1,6 +1,5 @@
 'use strict';
 
-require( 'es6-shim' );
 var Delver = require( 'delver' );
 var EventEmitter = require( 'events' );
 var floatObjectFactory = require( 'float-object-factory' );

@@ -1,6 +1,6 @@
 {
   "name": "float",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "An SDK for interacting with Float.",
   "homepage": "https://github.com/hellofloat/float-sdk",
   "repository": {
@@ -49,6 +49,6 @@
     "eventemitter2": "^0.4.14",
     "extend": "^3.0.0",
     "float-object-factory": "hellofloat/float-object-factory#0.4.2",
-    "superagent": "^1.3.0"
+    "superagent": "^1.7.2"
   }
 }

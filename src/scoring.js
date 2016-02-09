@@ -68,7 +68,7 @@ Scoring.addBank = function( overlay, cb ) {
                 return;
             }
 
-            callback( null, response );
+            cb( null, response );
         } );
 
 };
@@ -125,7 +125,7 @@ Scoring.getBankAccount = function( cb ) {
                 return;
             }
 
-            callback( null, response );
+            cb( null, response );
         } );
 
 };
@@ -199,7 +199,7 @@ Scoring.getScore = function( cb ) {
                 return;
             }
 
-            callback( null, response );
+            cb( null, response );
         } );
 
 };
