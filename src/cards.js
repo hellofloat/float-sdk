@@ -65,7 +65,7 @@ Cards.createCard = function( cb ) {
                 return;
             }
 
-            callback( null, response );
+            cb( null, response );
         } );
 
 };
@@ -120,7 +120,7 @@ Cards.getCard = function( cb ) {
                 return;
             }
 
-            callback( null, response );
+            cb( null, response );
         } );
 
 }

@@ -1,6 +1,5 @@
 'use strict';
 
-require( 'es6-shim' );
 var EventEmitter = require( 'events' );
 var extend = require( 'extend' );
 var superagent = require( 'superagent' );
