@@ -1,6 +1,6 @@
 {
   "name": "float",
-  "version": "0.3.0",
+  "version": "0.3.4",
   "description": "An SDK for interacting with Float.",
   "homepage": "https://github.com/hellofloat/float-sdk",
   "repository": {
@@ -9,6 +9,8 @@
   },
   "main": "./index.js",
   "scripts": {
+    "docs": "apidoc -i src/ -o docs/",
+    "js-beautify": "find . -name '*.js' -not -path './node_modules/*' | xargs js-beautify -r",
     "test": "browserify test/* | tape-run -b firefox",
     "build": "npm run bundle && npm run compress && npm run copysource",
     "bundle": "mkdir -p build/$npm_package_version/ && browserify -p bundle-collapser/plugin $npm_package_main --standalone $npm_package_name --debug | exorcist build/$npm_package_version/$npm_package_name.js.map > build/$npm_package_version/$npm_package_name.js",
@@ -21,13 +23,14 @@
     "float"
   ],
   "company": "Float, Inc. (https://hellofloat.com)",
-  "contributors": [ {
-    "name": "Andy Burke",
-    "email": "aburke@bitflood.org",
-    "url": "http://github.com/andyburke"
-  } ],
+  "contributors": [
+    "Andy Burke <aburke@bitflood.org> (https://github.com/andyburke)",
+    "Bruce Lim (https://github.com/b-rucel)",
+    "Greg Cardoni <greg@cardoni.net> (https://cardoni.net)"
+  ],
   "license": "MIT",
   "devDependencies": {
+    "apidoc": "^0.14.0",
     "browserify": "^11.0.0",
     "browserify-graph": "0.0.0",
     "bundle-collapser": "^1.2.1",
@@ -42,10 +45,8 @@
     "antisync": "0.0.1",
     "deep-diff": "^0.3.2",
     "delver": "^1.1.0",
-    "es6-shim": "^0.32.2",
-    "eventemitter2": "^0.4.14",
     "extend": "^3.0.0",
     "float-object-factory": "hellofloat/float-object-factory#0.4.2",
-    "superagent": "^1.3.0"
+    "superagent": "^1.7.2"
   }
 }

@@ -1,18 +1,21 @@
 'use strict';
 
-require( 'es6-shim' );
 var Delver = require( 'delver' );
-var EventEmitter = require('events');
+var EventEmitter = require( 'events' );
 var floatObjectFactory = require( 'float-object-factory' );
 var extend = require( 'extend' );
 
 var Users = require( './src/users.js' );
 var Passwords = require( './src/passwords.js' );
+var Scoring = require( './src/scoring.js' );
+var Cards = require( './src/cards.js' );
 
 var _defaults = {
     hosts: {
         users: 'auth.float.systems',
-        passwords: 'auth.float.systems'
+        passwords: 'auth.float.systems',
+        scoring: 'scoring.float.systems',
+        cards: 'cards.float.systems'
     }
 };
 
@@ -22,8 +25,8 @@ Float.init = function( options ) {
     var self = this;
 
     self.options = extend( true, {}, _defaults, options );
-
     self.state = new Delver( {} );
+
 
     self.users = Object.create( Users );
     self.users.init( {
@@ -48,6 +51,7 @@ Float.init = function( options ) {
         alias: 'delUser'
     } ] );
 
+
     self.passwords = Object.create( Passwords );
     self.passwords.init( {
         host: self.options.hosts.passwords
@@ -60,6 +64,38 @@ Float.init = function( options ) {
         method: 'reset',
         alias: 'resetPassword'
     } ] );
+
+
+    self.scoring = Object.create( Scoring );
+    self.scoring.init( {
+        host: self.options.hosts.scoring
+    } );
+    self._multiplexEmit( self.scoring, 'scoring' );
+    self._multiplexBind( self.scoring, [ {
+        method: 'addBank',
+        alias: 'addBankAccount'
+    }, {
+        method: 'getBankAccount',
+        alias: 'getBankAccount'
+    }, {
+        method: 'getScore',
+        alias: 'getScore'
+    } ] );
+
+
+    self.cards = Object.create( Cards );
+    self.cards.init( {
+        host: self.options.hosts.cards
+    } );
+    self._multiplexEmit( self.cards, 'cards' );
+    self._multiplexBind( self.cards, [ {
+        method: "createCard",
+        alias: "createCard"
+    }, {
+        method: "getCard",
+        alias: "getCard"
+    } ] );
+
 
     self.objectFactory = floatObjectFactory;
 
