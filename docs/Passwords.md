@@ -33,7 +33,7 @@ or
 
 ```javascript
 float.passwords.init( {
-    host: 'auth-dev.hellofloat.com'
+    host: 'auth.float.systems'
 } );
 ```
 

@@ -41,7 +41,7 @@
     "dependencies": {
         "antisync": "0.0.1",
         "deep-diff": "^0.3.2",
-        "delver": "0.0.10",
+        "delver": "^1.1.0",
         "es6-shim": "^0.32.2",
         "eventemitter2": "^0.4.14",
         "extend": "^3.0.0",

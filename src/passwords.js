@@ -8,7 +8,7 @@ var superagent = require( 'superagent' );
 var Passwords = module.exports = Object.assign( {}, EventEmitter.prototype );
 
 var DEFAULTS = {
-    host: 'api-auth.hellofloat.com'
+    host: 'auth.float.systems'
 };
 
 Passwords.init = function( options ) {

@@ -37,7 +37,7 @@ or
 
 ```javascript
 float.users.init( {
-    host: 'auth-dev.hellofloat.com'
+    host: 'auth.float.systems'
 } );
 ```
 

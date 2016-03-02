@@ -11,8 +11,8 @@ var Passwords = require( './src/passwords.js' );
 
 var _defaults = {
     hosts: {
-        users: 'api-auth.hellofloat.com',
-        passwords: 'api-auth.hellofloat.com'
+        users: 'auth.float.systems',
+        passwords: 'auth.float.systems'
     }
 };
 
