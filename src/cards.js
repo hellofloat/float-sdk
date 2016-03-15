@@ -123,4 +123,4 @@ Cards.getCard = function( cb ) {
             cb( null, response );
         } );
 
-}
+};
