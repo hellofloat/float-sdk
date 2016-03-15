@@ -3,7 +3,7 @@
     "curly": true,
     "eqeqeq": true,
     "eqnull": true,
-    "esnext": true,
+    "esversion": 6,
     "forin": true,
     "freeze": true,
     "futurehostile": true,
