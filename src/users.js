@@ -111,7 +111,7 @@ Users.get = function( id, callback ) {
     }
 
     superagent
-        .get( 'https://' + self.options.host + '/user' + ( options.id ? '/' + options.id : '' ) )
+        .get( self.options.host + '/user' + ( options.id ? '/' + options.id : '' ) )
         .withCredentials()
         .end( function( error, response ) {
             if ( error && error.status !== 400 ) {
@@ -226,7 +226,7 @@ Users.create = function( overlay, callback ) {
     var self = this;
 
     superagent
-        .post( 'https://' + self.options.host + '/user' )
+        .post( self.options.host + '/user' )
         .withCredentials()
         .send( overlay )
         .end( function( error, response ) {
@@ -328,7 +328,7 @@ Users.update = function( user, overlay, callback ) {
     var self = this;
 
     superagent
-        .put( 'https://' + self.options.host + '/user/' + user.id )
+        .put( self.options.host + '/user/' + user.id )
         .withCredentials()
         .send( overlay )
         .end( function( error, response ) {
@@ -383,7 +383,7 @@ Users.del = function( user, callback ) {
     var self = this;
 
     superagent
-        .del( 'https://' + self.options.host + '/user/' + user.id )
+        .del( self.options.host + '/user/' + user.id )
         .withCredentials()
         .end( function( error, response ) {
             if ( error ) {
@@ -469,7 +469,7 @@ Users.login = function( data, callback ) {
     callback = callback || function() {};
 
     superagent
-        .post( 'https://' + self.options.host + '/login' )
+        .post( self.options.host + '/login' )
         .withCredentials()
         .send( data )
         .end( function( error, response ) {
@@ -529,7 +529,7 @@ Users.logout = function( callback ) {
     }
 
     superagent
-        .post( 'https://' + self.options.host + '/logout' )
+        .post( self.options.host + '/logout' )
         .withCredentials()
         .end( function( error, response ) {
             if ( error ) {

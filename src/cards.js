@@ -56,7 +56,7 @@ Cards.createCard = function( cb ) {
     var self = this;
 
     superagent
-        .post( 'https://' + self.options.host + '/card' )
+        .post( self.options.host + '/card' )
         .withCredentials()
         .send( {} )
         .end( function( error, response ) {
@@ -112,7 +112,7 @@ Cards.getCard = function( cb ) {
     var self = this;
 
     superagent
-        .get( 'https://' + self.options.host + '/card' )
+        .get( self.options.host + '/card' )
         .withCredentials()
         .end( function( error, response ) {
             if ( error ) {
