@@ -55,7 +55,7 @@ Passwords.requestReset = function( options, callback ) {
     var self = this;
 
     superagent
-        .post( 'https://' + self.options.host + '/password_reset_request' )
+        .post( self.options.host + '/password_reset_request' )
         .withCredentials()
         .send( options )
         .end( function( error, response ) {
@@ -145,7 +145,7 @@ Passwords.reset = function( options, callback ) {
     var self = this;
 
     superagent
-        .post( 'https://' + self.options.host + '/password_reset' )
+        .post( self.options.host + '/password_reset' )
         .withCredentials()
         .send( options )
         .end( function( error, response ) {
