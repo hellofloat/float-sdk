@@ -2,4 +2,11 @@ node_modules
 .DS_Store
 *.log
 build/
-docs/
+docs/*
+
+# don't ignore these files:
+!docs/
+!docs/cards.md
+!docs/passwords.md
+!docs/scoring.md
+!docs/users.md
