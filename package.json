@@ -1,6 +1,6 @@
 {
   "name": "float",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "An SDK for interacting with Float.",
   "homepage": "https://github.com/hellofloat/float-sdk",
   "repository": {
@@ -18,7 +18,7 @@
     "stats": "browserify --full-paths $npm_package_main | discify --open",
     "deps": "browserify-graph $npm_package_main",
     "tag": "(boxcutter get version | xargs -I ver git tag -am ver ver) && git push --tags",
-    "postinstall": "./node_modules/babel-cli/bin/babel.js node_modules/delver/index.js > node_modules/delver/index.js && ./node_modules/babel-cli/bin/babel.js node_modules/float-object-factory/objects/user.js > node_modules/float-object-factory/objects/user.js"
+    "postinstall": "./node_modules/babel-cli/bin/babel.js node_modules/delver/index.js -o node_modules/delver/index.js && ./node_modules/babel-cli/bin/babel.js node_modules/float-object-factory/objects/user.js -o node_modules/float-object-factory/objects/user.js"
   },
   "keywords": [
     "float",
