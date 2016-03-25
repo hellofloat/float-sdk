@@ -1,6 +1,6 @@
 {
   "name": "float",
-  "version": "0.3.7",
+  "version": "0.3.9",
   "description": "An SDK for interacting with Float.",
   "homepage": "https://github.com/hellofloat/float-sdk",
   "repository": {
@@ -18,7 +18,7 @@
     "stats": "browserify --full-paths $npm_package_main | discify --open",
     "deps": "browserify-graph $npm_package_main",
     "tag": "(boxcutter get version | xargs -I ver git tag -am ver ver) && git push --tags",
-    "postinstall": "./node_modules/babel-cli/bin/babel.js node_modules/delver/index.js -o node_modules/delver/index.js && ./node_modules/babel-cli/bin/babel.js node_modules/float-object-factory/objects/user.js -o node_modules/float-object-factory/objects/user.js"
+    "postinstall": "./node_modules/babel-cli/bin/babel.js node_modules/delver/index.js -o node_modules/delver/index.js && ./node_modules/babel-cli/bin/babel.js node_modules/float-object-factory/objects/user.js -o node_modules/float-object-factory/objects/user.js  && ./node_modules/babel-cli/bin/babel.js node_modules/float-object-factory/node_modules/object-conform/index.js -o node_modules/float-object-factory/node_modules/object-conform/index.js"
   },
   "keywords": [
     "float",
@@ -33,8 +33,6 @@
   "license": "MIT",
   "devDependencies": {
     "apidoc": "^0.15.1",
-    "babel-cli": "^6.6.5",
-    "babel-preset-es2015": "^6.6.0",
     "babelify": "^7.2.0",
     "boxcutter": "^1.2.0",
     "browserify": "^13.0.0",
@@ -50,6 +48,8 @@
   },
   "dependencies": {
     "antisync": "0.0.1",
+    "babel-cli": "^6.6.5",
+    "babel-preset-es2015": "^6.6.0",
     "deep-diff": "^0.3.3",
     "delver": "^1.1.1",
     "extend": "^3.0.0",
