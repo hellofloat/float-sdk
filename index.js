@@ -9,13 +9,15 @@ var Users = require( './src/users.js' );
 var Passwords = require( './src/passwords.js' );
 var Scoring = require( './src/scoring.js' );
 var Cards = require( './src/cards.js' );
+var Accounts = require( './src/accounts.js' );
 
 var _defaults = {
     hosts: {
         users: 'auth.float.systems',
         passwords: 'auth.float.systems',
         scoring: 'scoring.float.systems',
-        cards: 'cards.float.systems'
+        cards: 'cards.float.systems',
+        accounts: 'accounts.float.systems'
     }
 };
 
@@ -72,12 +74,6 @@ Float.init = function( options ) {
     } );
     self._multiplexEmit( self.scoring, 'scoring' );
     self._multiplexBind( self.scoring, [ {
-        method: 'addBank',
-        alias: 'addBankAccount'
-    }, {
-        method: 'getBankAccount',
-        alias: 'getBankAccount'
-    }, {
         method: 'getScore',
         alias: 'getScore'
     } ] );
@@ -94,6 +90,20 @@ Float.init = function( options ) {
     }, {
         method: "getCard",
         alias: "getCard"
+    } ] );
+
+
+    self.accounts = Object.create( Accounts );
+    self.accounts.init( {
+        host: self.options.hosts.accounts
+    } );
+    self._multiplexEmit( self.accounts, 'accounts' );
+    self._multiplexBind( self.accounts, [ {
+        method: 'addBank',
+        alias: 'addBankAccount'
+    }, {
+        method: 'getBankAccount',
+        alias: 'getBankAccount'
     } ] );
 
 
