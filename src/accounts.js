@@ -11,6 +11,23 @@ var DEFAULTS = {
 };
 
 
+
+/**
+ * @api {init} float.accounts.init(options) init
+ * @apiName init
+ * @apiGroup Accounts
+ * @apiDescription Initializes the sdk accounts object.
+ *
+ * @apiParam (options) host The hostname of the service to connect to.
+ *
+ */
+Accounts.init = function( options ) {
+    var self = this;
+    self.options = extend( true, {}, DEFAULTS, options );
+    return self;
+};
+
+
 /**
  * @api {post} float.accounts.addBank() addBank
  * @apiName AddBankAccount
