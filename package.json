@@ -53,7 +53,7 @@
     "deep-diff": "^0.3.3",
     "delver": "^1.1.1",
     "extend": "^3.0.0",
-    "float-object-factory": "hellofloat/float-object-factory#2.0.1",
+    "float-object-factory": "hellofloat/float-object-factory#2.0.2",
     "superagent": "^1.8.1"
   },
   "apidoc": {
