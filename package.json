@@ -1,6 +1,6 @@
 {
   "name": "float",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An SDK for interacting with Float.",
   "homepage": "https://github.com/hellofloat/float-sdk",
   "repository": {
@@ -52,7 +52,7 @@
     "deep-diff": "^0.3.4",
     "delver": "^1.1.1",
     "extend": "^3.0.0",
-    "float-object-factory": "hellofloat/float-object-factory#2.0.2",
+    "float-object-factory": "hellofloat/float-object-factory#2.0.3",
     "superagent": "^1.8.1"
   },
   "apidoc": {
